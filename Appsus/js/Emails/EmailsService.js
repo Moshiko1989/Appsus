@@ -2,7 +2,7 @@
 var cl = console.log;
 cl('EmailsService.js ran');
 
-var email = [
+var emails = [
     {
         id: 1,
         title: '1st',
