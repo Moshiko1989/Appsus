@@ -2,7 +2,7 @@
 var cl = console.log;
 cl('MKService.js ran');
 
-var note = [
+var notes = [
     {
         id: 1,
         title: 'this is the one',
@@ -92,4 +92,5 @@ export default {
     editNote,
     deleteNote,
     sortNote,
+    notes
 }

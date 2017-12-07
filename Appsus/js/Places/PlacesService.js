@@ -2,7 +2,7 @@
 var cl = console.log;
 cl('PlacesService.js ran');
 
-var place = [
+var places = [
     {
         id: 1,
         title: 'idos home',
@@ -96,4 +96,5 @@ export default {
     editPlace,
     deletePlace,
     sortPlaces,
+    places
 }
