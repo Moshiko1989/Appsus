@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('Footer.js ran');  
+// cl('Footer.js ran');  
 
 export default {
     template: `

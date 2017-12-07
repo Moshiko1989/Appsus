@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('PlacesDetailsPage.js ran');
+// cl('PlacesDetailsPage.js ran');
 
 import PlacesService from '../PlacesService.js'
 

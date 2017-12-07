@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('Header.js ran');  
+// cl('Header.js ran');  
 
 export default {
     template: `

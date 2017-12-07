@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('MKService.js ran');
+// cl('MKService.js ran');
 
 var notes = [
     {

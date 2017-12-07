@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('PlacesService.js ran');
+// cl('PlacesService.js ran');
 
 var places = [
     {

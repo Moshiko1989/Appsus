@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('routes.js ran');
+// cl('routes.js ran');
 
 import HomePage from './general/pages/HomePage.js'
 

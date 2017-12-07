@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('EmailsService.js ran');
+// cl('EmailsService.js ran');
 
 const emails = [
     {

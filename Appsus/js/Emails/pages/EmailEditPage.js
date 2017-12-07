@@ -1,6 +1,6 @@
-'use strict';
+// 'use strict';
 var cl = console.log;
-cl('EMailEditPage.js ran');
+// cl('EMailEditPage.js ran');
 
 import EmailsService from '../EmailsService.js'
 // import EventBusService from '../services/EventBusService.js'

@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('PlacesEditPage.js ran');
+// cl('PlacesEditPage.js ran');
 
 import PlacesService from '../PlacesService.js'
 // import EventBusService from '../services/EventBusService.js'
