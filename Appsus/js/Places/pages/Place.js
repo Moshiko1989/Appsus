@@ -26,8 +26,20 @@ export default {
     },
     data(){
         return{
-             places: PlacesService.places
+             places: [],
+             newPlace: PlacesService.emptyPlace()
         }
+    },
+    created() {
+        PlacesService.getPlaces()
+            .then(places => {
+                this.places = places
+            })
+            .catch(err => {
+                PlacesService.getPlaces()
+                console.log('cant get places from PlacesService!!');
+                this.places = []
+            })
     }
 }
 

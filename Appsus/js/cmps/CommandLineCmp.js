@@ -24,6 +24,12 @@ export default {
             leftRadio: 'list',
             rightRadio: 'thumbnails'
             }
+        },
+        methods:{
+            addNewItem(){
+                this.$emit('addNewItem');
+            }
         }
+
 
 }

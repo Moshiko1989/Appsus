@@ -25,13 +25,25 @@ export default {
         CommandLine,
         ItemPreview
     },
-    data(){
-        return{
-             notes: MKService.notes
+    data() {
+        return {
+            notes: [],
+            newNote: MKService.emptyNote()
         }
+    },
+    created() {
+        MKService.getNotes()
+            .then(notes => {
+                this.notes = notes
+            })
+            .catch(err => {
+        MKService.getNotes()
+                console.log('cant get notes from MKService!!');
+                this.notes = []
+            })
     }
 }
 
-{/* <item-preview v-for="note in notes" :item="note"> </item-preview> */}
+
 
 

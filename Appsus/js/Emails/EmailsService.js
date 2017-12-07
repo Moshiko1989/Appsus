@@ -84,6 +84,19 @@ function emptyEmail() {
     }
 }
 
+function _getNextId() {
+    var maxId = emails.reduce((acc, mail)=>{
+        return (mail.id > acc)? mail.id : acc
+    }, 0);
+    return maxId + 1;
+} 
+
+function getEmails(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout(() => { resolve(emails) }, 250)
+    });
+}
+
 function addEmail() {
     
 
@@ -110,5 +123,6 @@ export default {
     editEmail,
     deleteEmail,
     sortEmails,
+    getEmails,
     emails
 }

@@ -70,8 +70,20 @@ function emptyPlace() {
     }
 }
 
-function addPlace() {
+function _getNextId() {
+    var maxId = places.reduce((acc, palce)=>{
+        return (place.id > acc)? place.id : acc
+    }, 0);
+    return maxId + 1;
+} 
 
+function getPlaces(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout(() => { resolve(places) }, 250)
+    });
+}
+
+function addPlace() {
 
     return place;
 }
@@ -96,5 +108,6 @@ export default {
     editPlace,
     deletePlace,
     sortPlaces,
+    getPlaces,
     places
 }
