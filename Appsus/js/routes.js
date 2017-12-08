@@ -18,6 +18,7 @@ import EmailEditPage from './Emails/pages/EmailEditPage.js'
 
 
 
+
 const routes = [
     //home page
     {
@@ -34,11 +35,11 @@ const routes = [
         component: MKEditPage
     },
     {
-        path: '/MisterKeeper:NoteId',
+        path: '/MisterKeeper/:NoteId',
         component:  MKDetailsPage
     },
     {
-        path: '/MisterKeeper:NoteId/edit',
+        path: '/MisterKeeper/:NoteId/edit',
         component: MKEditPage
     },
     //Places
@@ -68,11 +69,11 @@ const routes = [
         component: EmailEditPage
     },
     {
-        path: '/Emails:EmailId',
+        path: '/Emails/:EmailId',
         component: EmailDetailsPage
     },
     {
-        path: '/Emails:EmailId/edit',
+        path: '/Emails/:EmailId/edit',
         component: EmailEditPage
     },
 ];
