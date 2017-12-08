@@ -69,19 +69,11 @@ const routes = [
         component: EmailEditPage
     },
     {
-<<<<<<< HEAD
-        path: '/Email:EmailId',
-        component: EmailDetailsPage
-    },
-    {
-        path: '/Email:EmailId/edit',
-=======
         path: '/Emails/:EmailId',
         component: EmailDetailsPage
     },
     {
         path: '/Emails/:EmailId/edit',
->>>>>>> 6007750ee401379ffb987f1769b4bad4c72bad90
         component: EmailEditPage
     },
 ];
