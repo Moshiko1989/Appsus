@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('main.js ran');
+// cl('main.js ran');
 
 import myRoutes from './routes.js'
 Vue.use(VueRouter);

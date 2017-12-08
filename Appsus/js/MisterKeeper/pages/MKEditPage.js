@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('MKEditPage.js ran');
+// cl('MKEditPage.js ran');
 
 import MKService from '../MisterKeeperService.js'
 // import EventBusService from '../services/EventBusService.js'
