@@ -5,3 +5,7 @@ body {
     color: var(--colorB); 
     height: 100vh;
 }
+#map{
+    width: 400px;
+    height: 400px;
+}

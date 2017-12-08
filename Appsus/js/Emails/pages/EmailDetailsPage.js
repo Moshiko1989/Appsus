@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('EmailDetailsPage.js ran');
+// cl('EmailDetailsPage.js ran');
 
 import EmailsService from '../EmailsService.js'
 

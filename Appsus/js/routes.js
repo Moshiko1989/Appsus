@@ -1,6 +1,6 @@
 'use strict';
 var cl = console.log;
-cl('routes.js ran');
+// cl('routes.js ran');
 
 import HomePage from './general/pages/HomePage.js'
 
@@ -64,15 +64,15 @@ const routes = [
         component: EmailssHomePage
     },
     {
-        path: '/Emails/create',
+        path: '/Email/create',
         component: EmailEditPage
     },
     {
-        path: '/Emails:EmailId',
+        path: '/Email:EmailId',
         component: EmailDetailsPage
     },
     {
-        path: '/Emails:EmailId/edit',
+        path: '/Email:EmailId/edit',
         component: EmailEditPage
     },
 ];
