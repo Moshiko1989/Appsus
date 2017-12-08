@@ -15,11 +15,11 @@ function getDevicePosition() {
 }
 
 function keepData(position) {
-    cl('parameter time is: ', position.timestamp)
+    // cl('parameter time is: ', position.timestamp)
     gPosition.lat = position.coords.latitude;
     gPosition.lng = position.coords.longitude;
     gPosition.date = Date(position.timestamp);
-    cl('gpos.date is: ', gPosition.date)
+    // cl('gpos.date is: ', gPosition.date)
     renderDisplay(gPosition.lat, gPosition.lng, gPosition.date)
 }
 
@@ -63,8 +63,21 @@ function renderMap(lat, lng) {
                 lng: lng,
             },
             zoom: 20,
-        }
-    );
+        });
+        var marker = new google.maps.Marker({
+            position: { lat: lat,
+                        lng: lng
+                    },
+            map: gMap,
+            title: 'Ahlan'
+        });
+        var marker = new google.maps.Marker({
+            position: { lat: lat + 0.0020,
+                        lng: lng + 0.0030
+                    },
+            map: gMap,
+            title: 'Ahlan'
+        });
 }
 
 function renderAdress(lat, lng) {
@@ -82,18 +95,19 @@ function updateLocation(value) {
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${value}&key=AIzaSyBOVWShOuDggnEiRko3L7x_47TsJFyKTbw`)
         .then(res => {
             res.json().then(res => {
-                console.log({res})
                 gPosition.lat = res.results[0].geometry.location.lat;
                 gPosition.lng = res.results[0].geometry.location.lng;
                 // gSearchPos.timestamp = Date.now()
                 // showLocation(gSearchPos)
-                var image = '../../img/pin.png';
-                var beachMarker = new google.maps.Marker({
+                // var image = '../../img/pin.png';
+                renderDisplay(gPosition.lat, gPosition.lng, gPosition.date)
+                var marker = new google.maps.Marker({
                     position: { lat: gPosition.lat,
                                 lng: gPosition.lng
                             },
                     map: gMap,
-                    icon: image
+                    title: 'Ahlan'
+                    // icon: image
                 });
 
                 renderDisplay(gPosition.lat, gPosition.lng, gPosition.date)
