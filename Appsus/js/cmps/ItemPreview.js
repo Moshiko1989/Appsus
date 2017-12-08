@@ -23,6 +23,6 @@ export default {
     created(){
         // cl('created: ', this.$route.fullPath)
         // cl('regex: ', this.$route.matched[0].regex)
-        cl(this.$route.matched[0].regex.test(this.$route.fullPath))
+        // cl(this.$route.matched[0].regex.test(this.$route.fullPath))
     }
 }
