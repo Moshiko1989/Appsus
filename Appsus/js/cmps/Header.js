@@ -4,13 +4,11 @@ var cl = console.log;
 
 export default {
     template: `
-        <section>
             <nav> 
                 <router-link to="/" exact>Home</router-link>
                 <router-link to="/MisterKeeper/">MisterKeeper</router-link>
                 <router-link to="/Places/">Places</router-link>
                 <router-link to="/Emails/">Emails</router-link> 
             </nav>           
-        </section>
         `   
 }

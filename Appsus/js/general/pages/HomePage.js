@@ -5,7 +5,7 @@ var cl = console.log;
 export default {
     template: `
         <section>
-            <h1>This will be the Home component</h1>
+            <div id="earth"></div>            
         </section>
         `   
 }

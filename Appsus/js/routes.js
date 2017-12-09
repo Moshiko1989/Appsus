@@ -65,7 +65,7 @@ const routes = [
         component: EmailssHomePage
     },
     {
-        path: '/Emails/create',
+        path: '/Email/create',
         component: EmailEditPage
     },
     {

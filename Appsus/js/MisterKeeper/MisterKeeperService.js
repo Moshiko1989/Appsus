@@ -7,50 +7,50 @@ var notes = [
         id: 1,
         title: 'this is the one',
         text: 'lorem ipsum',
-        data: '27 Dec 1995 13:33:00',
+        data: '',
         isImportent: true,
-        date: 11,
-        rimainder: 12,
+        date: '27 Dec 1995 13:33:00',
+        rimainder: '27 Dec 1995 14:33:00',
         color: 'red'
     },
     {
         id: 2,
         title: 'this is two',
         text: 'lorem ipsum',
-        data: '27 Nov 1995 13:30:00',
+        data: '',
         isImportent: false,
-        date: 11,
-        rimainder: 12,
+        date: '27 Nov 1995 13:30:00',
+        rimainder: '',
         color: 'red'
     },
     {
         id: 3,
         title: '3ed ',
         text: 'lorem ipsum',
-        data: '28 Dec 1995 13:30:00',
+        data: '',
         isImportent: true,
-        date: 11,
-        rimainder: 12,
+        date: '28 Dec 1995 13:30:00',
+        rimainder: '',
         color: 'red'
     },
     {
         id: 4,
         title: 'poam ',
         text: 'lorem ipsum',
-        data: '27 Dec 2016 13:30:00',
+        data: '',
         isImportent: false,
-        date: 11,
-        rimainder: 12,
+        date: '27 Dec 2016 13:30:00',
+        rimainder: '',
         color: 'red'
     },
     {
         id: 5,
         title: 'clash',
         text: 'lorem ipsum',
-        data: '27 Dec 2017 13:30:00',
+        data: '',
         isImportent: false,
-        date: 11,
-        rimainder: 12,
+        date: '27 Dec 2017 13:30:00',
+        rimainder: '29 Dec 2017 13:30:00',
         color: 'red'
     },
 ];
@@ -65,6 +65,19 @@ function emptyNote() {
         rimainder: '',
         color: ''
     }
+}
+
+function _getNextId() {
+    var maxId = notes.reduce((acc, note)=>{
+        return (note.id > acc)? note.id : acc
+    }, 0);
+    return maxId + 1;
+} 
+
+function getNotes(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout(() => { resolve(notes) }, 500)
+    });
 }
 
 function addNote() {
@@ -92,5 +105,6 @@ export default {
     editNote,
     deleteNote,
     sortNote,
+    getNotes,
     notes
 }

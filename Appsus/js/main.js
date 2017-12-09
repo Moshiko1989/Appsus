@@ -21,7 +21,7 @@ new Vue({
     `,
     created() {
         cl('Vue App was created!!!');
-    },
+    },  
     components: {
         MyHeader,
         MyFooter

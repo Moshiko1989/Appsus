@@ -3,7 +3,7 @@ import MapService from '../places/MapService.js'
 export default {
     template: `
         <section>
-        <input v-model="newLocation" @keyup.enter="searchSubmited" placeholder="search new location">
+        <input v-model="newLocation" type="text" @keyup.enter="searchSubmited" placeholder="search new location">
             <div id="map"></div>
         </section>
     `,

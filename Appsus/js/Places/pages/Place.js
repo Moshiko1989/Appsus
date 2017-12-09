@@ -11,18 +11,21 @@ import MapsGoogle from '../../cmps/MapCmp.js'
 export default {
     template: `
     <section>
-        <h1>This will be the Places Home Page</h1>
         <command-line @searchSubmited="searchSubmited"></command-line>
-        <ul>
-            <item-preview v-for="place in places" :item="place"> </item-preview>
-        </ul>
-        <maps-google :searchValue="searchValue"></maps-google>
+        <content class="main-content">
+            <ul class="left">
+                <item-preview v-for="place in places" :item="place"> </item-preview>
+            </ul>
+            <maps-google :searchValue="searchValue" class="map-container right"></maps-google>            
+        </content>
     </section>
     `,
-    data(){
-        return{
+    data(){ 
+        return {
              places: PlacesService.places,
              searchValue: '',
+             places: [],
+             newPlace: PlacesService.emptyPlace()
         }
     },
     methods: {
@@ -37,7 +40,18 @@ export default {
         ItemPreview,
         MapsGoogle
     },
-
+    created() {
+        this.places
+        PlacesService.getPlaces()
+            .then(places => {
+                this.places = places
+            })
+            .catch(err => {
+                PlacesService.getPlaces()
+                console.log('cant get places from PlacesService!!');
+                this.places = []
+            })
+    }
 }
 
 

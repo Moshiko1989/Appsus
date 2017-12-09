@@ -11,11 +11,15 @@ import ItemPreview from '../../cmps/ItemPreview.js'
 export default {
     template: `
     <section>
-        <h1>This will be the MKHomePage</h1>
         <command-line @searchSubmited="searchSubmited"></command-line>
-        <ul>
-            <item-preview v-for="note in notes" :item="note"> </item-preview>
-        </ul>
+        <content class="main-content">
+            <ul class="left">
+                <li v-for="obj in 4">some li</li>
+            </ul>
+            <ul class="right">
+                <item-preview v-for="note in notes" :item="note"> </item-preview>
+            </ul>
+            </content>
     </section>
     `,
     
@@ -35,9 +39,25 @@ export default {
         CommandLine,
         ItemPreview
     },
-    
+    data() {
+        return {
+            notes: [],
+            newNote: MKService.emptyNote()
+        }
+    },
+    created() {
+        MKService.getNotes()
+            .then(notes => {
+                this.notes = notes
+            })
+            .catch(err => {
+        MKService.getNotes()
+                console.log('cant get notes from MKService!!');
+                this.notes = []
+            })
+    }
 }
 
-{/* <item-preview v-for="note in notes" :item="note"> </item-preview> */}
+
 
 

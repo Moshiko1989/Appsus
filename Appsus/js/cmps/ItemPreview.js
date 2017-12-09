@@ -6,7 +6,7 @@ export default {
     template: `
         <li>
             <router-link :item="item" :to=link exact>
-                <p>{{item.title}}</P
+                <p>{{item.title}}</P>
                 <p>{{item.text}}</p>
                 <p>{{item.date}}</P>
             </router-link>
