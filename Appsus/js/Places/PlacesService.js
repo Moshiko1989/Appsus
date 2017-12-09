@@ -83,6 +83,14 @@ function getPlaces(){
     });
 }
 
+function getPlaceById(placeId){
+    return new Promise((resolve, reject)=>{
+        var foundPlace = places.find(place => place.id === placeId)
+        if (foundPlace) resolve(foundPlace)
+        else reject();
+    })
+}
+
 function addPlace() {
 
     return place;
@@ -109,5 +117,6 @@ export default {
     deletePlace,
     sortPlaces,
     getPlaces,
+    getPlaceById,
     places
 }

@@ -17,7 +17,8 @@ export default {
         }
     },
     created() {
-        var placeId = +this.$route.params.placeId
+        var placeId = +this.$route.params.PlaceId
+        cl('placeId',placeId)
         PlacesService.getPlaceById(placeId)
          .then(place => this.place = place)
          .catch(err => {

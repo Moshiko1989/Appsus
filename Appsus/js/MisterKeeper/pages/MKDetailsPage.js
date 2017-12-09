@@ -17,12 +17,13 @@ export default {
         }
     },
     created() {
-        var noteId = +this.$route.params.noteId
+        var noteId = +this.$route.params.NoteId
+        cl('noteId',noteId)
         MKService.getNoteById(noteId)
          .then(note => this.note = note)
          .catch(err => {
              this.$router.push('/')
          })
-        
+        cl('note',this.note)
     }
 }

@@ -80,6 +80,14 @@ function getNotes(){
     });
 }
 
+function getNoteById(noteId){
+    return new Promise((resolve, reject)=>{
+        var foundNote = notes.find(note => note.id === noteId)
+        if (foundNote) resolve(foundNote)
+        else reject();
+    })
+}
+
 function addNote() {
    
     return note;
@@ -106,5 +114,6 @@ export default {
     deleteNote,
     sortNote,
     getNotes,
+    getNoteById,
     notes
 }

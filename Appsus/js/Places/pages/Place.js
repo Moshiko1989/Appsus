@@ -19,12 +19,8 @@ export default {
         <maps-google :searchValue="searchValue"></maps-google>
     </section>
     `,
-    data(){
-        return{
-             places: PlacesService.places,
-             searchValue: '',
-        }
-    },
+   
+    
     methods: {
         searchSubmited(value) {
             cl('Ss ran', value)
@@ -40,7 +36,8 @@ export default {
     data(){
         return{
              places: [],
-             newPlace: PlacesService.emptyPlace()
+             newPlace: PlacesService.emptyPlace(),
+             searchValue: '',
         }
     },
     created() {

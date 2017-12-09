@@ -99,6 +99,14 @@ function getEmails() {
     });
 }
 
+function getEmailById(emailId){
+    return new Promise((resolve, reject)=>{
+        var foundEmail = emails.find(email => email.id === emailId)
+        if (foundEmail) resolve(foundEmail)
+        else reject();
+    })
+}
+
 function saveEmail(email) {
     return new Promise((resolve, reject) => {
         emails.push(email);
@@ -133,5 +141,6 @@ export default {
     deleteEmail,
     sortEmails,
     getEmails,
+    getEmailById,
     emails
 }

@@ -24,6 +24,12 @@ export default {
     },
     created() {
         cl('emailToUpdate', this.emailToUpdate);
+        var emailId = +this.$route.params.emailId
+        EmailsService.getEmailById(emailId)
+         .then(email => this.email = email)
+         .catch(err => {
+             this.$router.push('/')
+         })
     },
     methods: {
         saveEmail() {

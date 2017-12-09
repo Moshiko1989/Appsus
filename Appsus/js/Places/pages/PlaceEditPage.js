@@ -28,11 +28,12 @@ export default {
         }
     },
     created() {
-        // if (!this.carId) return;
-        // CarService.getCarById(this.carId)
-        //     .then(car => {
-        //         this.carToUpdate = Object.assign({}, car)
-        //     })
+        var placeId = +this.$route.params.placeId
+        PlacesService.getPlaceById(placeId)
+         .then(place => this.place = place)
+         .catch(err => {
+             this.$router.push('/Places')
+         })
     },
     methods: {
     //     saveCar() {

@@ -17,12 +17,15 @@ export default {
         }
     },
     created() {
-        var emailId = +this.$route.params.emailId
+        var emailId = +this.$route.params.EmailId
         EmailsService.getEmailById(emailId)
          .then(email => this.email = email)
          .catch(err => {
              this.$router.push('/')
          })
+         cl('emailId',emailId);
+         
+         cl('this.$route.params',+this.$route.params.EmailId)
         
     }
 }
