@@ -41,7 +41,6 @@ export default {
         MapsGoogle
     },
     created() {
-        this.places
         PlacesService.getPlaces()
             .then(places => {
                 this.places = places
