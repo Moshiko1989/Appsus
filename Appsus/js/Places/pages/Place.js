@@ -23,7 +23,6 @@ export default {
     data(){ 
         return {
              places: [],
-             newPlace: PlacesService.emptyPlace(),
              searchValue: ''
         }
     },
@@ -32,6 +31,7 @@ export default {
             .then(places => {
                 // cl('places', places)
                 this.places = places
+                // cl('this.places: ', this.places)
             })
             .catch(err => {
                 console.log('cant get places from PlacesService!!');
@@ -57,7 +57,7 @@ export default {
                     return false; 
                 }
             })
-            cl('placesToDisplay'. placesToDisplay)
+            cl('placesToDisplay', placesToDisplay)
         }
     },
     components: {

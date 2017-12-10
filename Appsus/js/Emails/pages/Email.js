@@ -44,7 +44,7 @@ export default {
     methods:{
         addNewEmail(){
             // console.log('emails is good rout')
-            // this.$router.push('/Email/create');
+            this.$router.push('/Email/create');
         },
         searchSubmited(value) {
             // cl('Ss ran', value);
