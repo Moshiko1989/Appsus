@@ -27,7 +27,7 @@ export default {
     data(){
         return{
              emails: [],
-             newMail: EmailsService.emptyEmail(),
+            //  newMail: EmailsService.emptyEmail(),
              searchValue: '',
         }
     },
@@ -44,7 +44,7 @@ export default {
     methods:{
         addNewEmail(){
             // console.log('emails is good rout')
-            // this.$router.push('/Email/create');
+            this.$router.push('/Email/create');
         },
         searchSubmited(value) {
             // cl('Ss ran', value);

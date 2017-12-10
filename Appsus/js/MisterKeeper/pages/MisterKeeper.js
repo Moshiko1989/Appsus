@@ -53,7 +53,7 @@ export default {
         },
         addNewNote(){
             // console.log('notes is good rout')
-            // this.$router.push('/MisterKeeper/create');
+            this.$router.push('/MisterKeeper/create');
         },
         searchSubmited(value) {
             cl('Ss ran', value)
