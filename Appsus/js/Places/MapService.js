@@ -64,6 +64,7 @@ function renderMap(lat, lng) {
             },
             zoom: 20,
         });
+        
         var marker = new google.maps.Marker({
             position: { lat: lat,
                         lng: lng

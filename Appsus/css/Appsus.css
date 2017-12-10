@@ -10,6 +10,9 @@ body {
     background-color: var(--colorA);
     color: var(--colorB); 
 }
+ul.right p {
+    display: inline;
+}
 nav {
     margin: 0;
     width: 33.33333333%;
@@ -39,7 +42,6 @@ ul > li {
 ul li:last-child {
     border-bottom: 2px solid var(--colorB);
 }
-
 input {
     height: 2em;
     margin: 2px;

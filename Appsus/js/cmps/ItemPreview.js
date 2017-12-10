@@ -1,7 +1,7 @@
 'use strict';
 var cl = console.log;
 // cl('ItemPreview.js ran');
-
+ 
 export default {
     template: `
         <li>
@@ -14,7 +14,7 @@ export default {
     `,
     data() {
         return {
-            link: this.$route.fullPath+this.item.id 
+            link: this.$route.fullPath + this.item.id 
         }
     },
     props: {
@@ -22,6 +22,8 @@ export default {
     },
     created(){
         // cl('created: ', this.$route.fullPath)
+        // cl('this.item.id: ', this.item.id)
+        // cl('link: ', this.link)
         // cl('regex: ', this.$route.matched[0].regex)
         // cl(this.$route.matched[0].regex.test(this.$route.fullPath))
     }
