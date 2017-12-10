@@ -10,7 +10,7 @@ export default {
                 <input class ="serchTextArea" type="text"
                     v-model="searchValue" @keyup.enter="searchSubmited">
                 <button class="serch" @click="searchSubmited()">serch </button>
-                <button class="AddNew" @click="addNewItem()">{{newTitle}} </button>
+                <button class="AddNew" @click="addNewItem()">new</button>
                 <input type="radio" name="viewType" value="list" > {{leftRadio}}
                 <input type="radio" name="viewType" value="thumbNails"> {{rightRadio}}
             </nav>           
@@ -19,7 +19,6 @@ export default {
 
         data(){
             return{
-            newTitle: 'new',
             leftRadio: 'list',
             rightRadio: 'thumbnails',
             searchValue:''

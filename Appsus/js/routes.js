@@ -70,7 +70,7 @@ const routes = [
     },
     {
         path: '/Emails/:EmailId',
-        component: EmailDetailsPage
+        component: EmailEditPage
     },
     {
         path: '/Emails/:EmailId/edit',

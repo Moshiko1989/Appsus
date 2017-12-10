@@ -72,7 +72,7 @@ function renderMap(lat, lng) {
             map: gMap,
             title: 'Ahlan'
         });
-        
+        cl('gmap is: ', gMap)
         var marker = new google.maps.Marker({
             position: { lat: lat + 0.0020,
                         lng: lng + 0.0030
@@ -102,7 +102,8 @@ function updateLocation(value) {
                 // gSearchPos.timestamp = Date.now()
                 // showLocation(gSearchPos)
                 // var image = '../../img/pin.png';
-                renderDisplay(gPosition.lat, gPosition.lng, gPosition.date)
+                // renderDisplay(gPosition.lat, gPosition.lng, gPosition.date)
+                gMap.setCenter({lat: gPosition.lat, lng: gPosition.lng})
                 var marker = new google.maps.Marker({
                     position: { lat: gPosition.lat,
                                 lng: gPosition.lng

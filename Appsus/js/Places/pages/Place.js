@@ -23,10 +23,7 @@ export default {
     data(){ 
         return {
              places: [],
-<<<<<<< HEAD
-=======
             //  newPlace: PlacesService.emptyPlace(),
->>>>>>> eb86dac1401b3285cec3ae292ac7db60f059c99f
              searchValue: ''
         }
     },

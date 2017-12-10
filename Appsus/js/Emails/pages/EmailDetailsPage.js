@@ -7,7 +7,7 @@ import EmailsService from '../EmailsService.js'
 export default {
     template: `
         <section v-if="email">
-            <p>isImportent</p>
+            <p>isImportent2</p>
             <input type="chekbox" v-model="email.isImportent">
             <p>title</p>
             <input type="text" v-model="email.title" autofocus>
@@ -38,9 +38,9 @@ export default {
              this.$router.push('/Emails')
             cl('cach')
          })
-         cl('emailId',emailId);
+        //  cl('emailId',emailId);
          
-         cl('this.$route.params',this.$route.params)
+        //  cl('this.$route.params',this.$route.params)
         
     },
     methods: {
