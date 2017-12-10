@@ -98,6 +98,12 @@ function getEmails() {
         setTimeout(() => { resolve(emails) }, 250)
     });
 }
+function addEmail(email) {
+    return new Promise((resolve, reject) => {
+        emails.push(email);
+    resolve();
+    })
+}
 
 function saveEmail(email) {
     return new Promise((resolve, reject) => {
@@ -128,6 +134,7 @@ function sortEmails(email, key) {
     
 export default {
     emptyEmail,
+    addEmail,
     saveEmail,
     editEmail,
     deleteEmail,

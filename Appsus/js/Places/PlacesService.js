@@ -2,7 +2,7 @@
 var cl = console.log;
 // cl('PlacesService.js ran');
 
-var places = [
+const places = [
     {
         id: 1,
         title: 'idos home',
@@ -60,9 +60,9 @@ var places = [
 
 function emptyPlace() {
     return {
-        id:_getNextId(),
+        id: _getNextId(),
         title: '',
-        text: ' ',
+        text: '',
         picture: '',
         addressLan: '',
         addressLg: '',
@@ -72,7 +72,7 @@ function emptyPlace() {
 }
 
 function _getNextId() {
-    var maxId = places.reduce((acc, palce)=>{
+    var maxId = places.reduce((acc, place)=>{
         return (place.id > acc)? place.id : acc
     }, 0);
     return maxId + 1;
@@ -93,12 +93,22 @@ function getPlaceById(placeId){
         else reject();
     })
 }
-
-function savePlace(email) {
+function addPlace(place) {
     return new Promise((resolve, reject) => {
         places.push(place);
     resolve();
     })
+}
+
+function savePlace(place) {
+    return new Promise((resolve, reject)=>{
+        cl('place',place);
+            var placeIdx = places.findIndex(currPlace => currPlace.id === place.id);
+            cl('noteIdx',placeIdx);
+            places.splice(placeIdx, 1, place);
+        resolve()
+        // reject()
+    });
 }
 
 //function read???//
@@ -107,8 +117,12 @@ function editPlace(place) {
 
 }
 
-function deletePlace(place) {
-
+function deletePlace(placeId) {
+    return new Promise((resolve, reject)=>{
+        var place = places.findIndex(place => place.id === placeId)
+        places.splice(place, 1);
+        resolve()
+    });
 }
 
 function sortPlaces(place, key) {
@@ -117,6 +131,7 @@ function sortPlaces(place, key) {
 
 export default {
     emptyPlace,
+    addPlace,
     savePlace,
     editPlace,
     deletePlace,

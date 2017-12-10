@@ -46,11 +46,11 @@ export default {
             cl('this.note',this.note)
             MKService.addNote(this.note)
                 .then(_ => {
-                    cl('save clicked in the then')
+                    cl('add clicked in the then')
                     this.$router.push('/MisterKeeper')
                 })
                 .catch(err => {
-                    cl('cant save');
+                    cl('cant add');
                 })
         }
     }

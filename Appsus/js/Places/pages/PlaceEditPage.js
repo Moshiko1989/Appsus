@@ -9,43 +9,52 @@ import PlacesService from '../PlacesService.js'
 export default {
     template: `
     <section>
-    
-    Add place
-        <form @submit.prevent="savePlace">
+     Add place
+        <form @submit.prevent="addPlace">
             <p>title</p>
-            <input type="text" v-model="date.title" autofocus>
+            <input type="text" v-model="place.title" autofocus>
             <p>text</p>
-            <input type="textbox" v-model="note.text" >
+            <input type="textbox" v-model="place.text" >
             <p>picture</p>
-            <input type="text" v-model="note.picture" >
+            <input type="text" v-model="place.picture" >
             <p>date</p>
-            <input type="date" v-model="note.date" >
+            <input type="date" v-model="place.date" >
             <p>type</p>
-            <input type="text" v-model="note.type" >
-            <button>{{(placeId)? 'Save' : 'Add'}}</button>
+            <input type="text" v-model="place.type" >
+            <button @click="addPlace">add</button>
             <router-link tag="button" to="/Places">Cancel</router-link>
         </form>
+    
     </section>
     
     `,
     data() {
         return {
-            placeToUpdate: PlacesService.emptyplace(),
+            place: {},
             placeId: +this.$route.params.placeId,
-            userMsg : null
+            // userMsg : null
 
         }
     },
     created() {
-        var placeId = +this.$route.params.placeId
-        PlacesService.getPlaceById(placeId)
-         .then(place => this.place = place)
-         .catch(err => {
-             this.$router.push('/Places')
-         })
+        cl('places edit place crated')
+        cl('PlacesService.emptyPlace()',PlacesService.emptyPlace())
+        this.place = PlacesService.emptyPlace()
+        cl('place',this.place)
     },
     methods: {
-    
+        addPlace() {
+            cl('this.place',this.place)
+            PlacesService.addPlace(this.place)
+                .then(_ => {
+                    cl('add clicked in the then')
+                    this.$router.push('/Places')
+                })
+                .catch(err => {
+                    cl('cant add');
+                })
+        }
     }
     
 }
+

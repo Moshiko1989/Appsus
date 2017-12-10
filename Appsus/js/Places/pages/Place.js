@@ -14,7 +14,7 @@ export default {
         <command-line @addNewItem="addNewPlace" @searchSubmited="searchSubmited"></command-line>
         <content class="main-content">
             <ul class="left">
-                <item-preview v-for="place in places" :item="place" :key="place.id"> </item-preview>
+                <item-preview v-for="place in places" @deleteItem="deletePlace(place.id)"  :item="place" :key="place.id"> </item-preview>
             </ul>
             <maps-google :searchValue="searchValue" class="map-container right"></maps-google>            
         </content>
@@ -23,13 +23,17 @@ export default {
     data(){ 
         return {
              places: [],
+<<<<<<< HEAD
+=======
+            //  newPlace: PlacesService.emptyPlace(),
+>>>>>>> eb86dac1401b3285cec3ae292ac7db60f059c99f
              searchValue: ''
         }
     },
     created() {
         PlacesService.getPlaces()
             .then(places => {
-                // cl('places', places)
+            //    cl('places', places)
                 this.places = places
                 // cl('this.places: ', this.places)
             })
@@ -47,6 +51,17 @@ export default {
         addNewPlace(){
             console.log('places is good rout')
             this.$router.push('/place/create');
+        },
+        deletePlace(placeId){
+            cl('id is: ', placeId)
+            // cl('place was delited');
+            PlacesService.deletePlace(placeId)
+                .then(_ =>{
+                    // cl('place was delited');
+                })
+                .catch(err => {
+                    cl('place was not delited');
+                })
         }
     },
     computed:{

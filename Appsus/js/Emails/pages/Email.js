@@ -27,7 +27,7 @@ export default {
     data(){
         return{
              emails: [],
-             newMail: EmailsService.emptyEmail(),
+            //  newMail: EmailsService.emptyEmail(),
              searchValue: '',
         }
     },
