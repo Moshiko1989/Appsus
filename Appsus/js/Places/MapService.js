@@ -64,6 +64,7 @@ function renderMap(lat, lng) {
             },
             zoom: 20,
         });
+
         var marker = new google.maps.Marker({
             position: { lat: lat,
                         lng: lng
@@ -71,6 +72,7 @@ function renderMap(lat, lng) {
             map: gMap,
             title: 'Ahlan'
         });
+        
         var marker = new google.maps.Marker({
             position: { lat: lat + 0.0020,
                         lng: lng + 0.0030

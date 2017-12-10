@@ -12,39 +12,47 @@ export default {
     
     Add note
         <form @submit.prevent="saveNote">
-            <input type="text" v-model="noteToUpdate.model" autofocus>
-            <button>{{(noteId)? 'Save' : 'Add'}}</button>
-            <router-link tag="button" to="/">Cancel</router-link>
+            <p>isImportent</p>
+            <input type="chekbox" v-model="note.isImportent">
+            <p>title</p>
+            <input type="text" v-model="note.title" autofocus>
+            <p>text</p>
+            <input type="textbox" v-model="note.text" >
+            <p>date</p>
+            <input type="date" v-model="note.date" >
+            <p>rimainder</p>
+            <input type="date" v-model="note.rimainder" >
+            <p>color</p>
+            <input type="color" v-model="note.color" >
+            <button @click="addNote">add</button>
+            <router-link tag="button" to="/MisterKeeper">Cancel</router-link>
         </form>
     </section>
     
     `,
     data() {
         return {
-            noteToUpdate: MKService.emptynote(),
+            note: MKService.emptyNote(),
             noteId: +this.$route.params.noteId,
-            userMsg : null
-
+            // userMsg : null
         }
+        
     },
-    created() {
-        // if (!this.carId) return;
-        // CarService.getCarById(this.carId)
-        //     .then(car => {
-        //         this.carToUpdate = Object.assign({}, car)
-        //     })
+    created(){
+        
     },
     methods: {
-    //     saveCar() {
-    //         CarService.saveCar(this.carToUpdate)
-    //             .then(addedCar => {
-    //                 this.$router.push('/')
-    //             })
-    //             .catch(err => {
-    //                 var userMsg = { txt: 'Cars Loaded Failed!', type: 'danger' }
-    //                 EventBusService.$emit(SHOW_MSG, userMsg)
-    //             })
-    //     }
+        addNote() {
+            cl('this.note',this.note)
+            MKService.addNote(this.note)
+                .then(_ => {
+                    cl('save clicked in the then')
+                    this.$router.push('/MisterKeeper')
+                })
+                .catch(err => {
+                    cl('cant save');
+                })
+        }
     }
     
 }

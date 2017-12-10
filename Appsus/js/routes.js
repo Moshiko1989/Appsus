@@ -48,7 +48,7 @@ const routes = [
         component: PlacesHomePage
     },
     {
-        path: '/Places/create',
+        path: '/Place/create',
         component: PlaceEditPage
     },
     {

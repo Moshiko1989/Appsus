@@ -1,11 +1,72 @@
 @import 'vars.css';
-
+@import '../outlibs/earth.css';
+/* * {
+    border: 0.1px solid black;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+} */
 body {
     background-color: var(--colorA);
     color: var(--colorB); 
-    height: 100vh;
 }
-#map{
-    width: 400px;
-    height: 400px;
+p {
+    display: inline;
+}
+nav {
+    margin: 0;
+    width: 33.33333333%;
+}
+nav > * {
+    margin: 0;
+    border: 0.1px solid var(--colorB);
+}
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px 0px 10px;
+}
+ul {
+    height: 100%;
+}
+ul.left {
+    background-color:  #DBDBF6;
+}
+ul.right {
+    background-color: #EA9CA7;
+}
+ul > li {
+    border: 2px solid var(--colorB);
+    border-bottom: none;
+}
+ul li:last-child {
+    border-bottom: 2px solid var(--colorB);
+}
+input {
+    height: 2em;
+    margin: 2px;
+    padding: 2.5px;
+    border-radius: 10%;
+}
+.map-container {
+    padding: 10px;
+    width: 70%;
+    /* height: auto; */
+}
+#map {
+    height: 90%;
+}
+.foot-class, .command-line {
+    background-color: var(--colorC);
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.command-line > nav {
+    display: flex;
+    justify-content: center;
+}
+.command-line > nav > * {
+    margin: 3px;
 }

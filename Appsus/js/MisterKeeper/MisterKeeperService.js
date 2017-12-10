@@ -57,6 +57,7 @@ var notes = [
 
 function emptyNote() {
     return {
+        id:_getNextId(),
         title: '',
         text: '',
         data: '',
@@ -83,14 +84,28 @@ function getNotes(){
 function getNoteById(noteId){
     return new Promise((resolve, reject)=>{
         var foundNote = notes.find(note => note.id === noteId)
-        if (foundNote) resolve(foundNote)
+        if (foundNote){ 
+            resolve(foundNote)
+        }
         else reject();
     })
 }
 
-function addNote() {
-   
-    return note;
+function addNote(note) {
+    return new Promise((resolve, reject) => {
+        notes.push(note);
+    resolve();
+    })
+}
+function saveNote(note) {
+    return new Promise((resolve, reject)=>{
+        cl('note',note);
+            var noteIdx = notes.findIndex(currNote => currNote.id === note.id);
+            cl('noteIdx',noteIdx);
+            notes.splice(noteIdx, 1, note);
+        resolve()
+        // reject()
+    });
 }
 
 //function read???//
@@ -110,6 +125,7 @@ function sortNote(note, key) {
 export default {
     emptyNote,
     addNote,
+    saveNote,
     editNote,
     deleteNote,
     sortNote,

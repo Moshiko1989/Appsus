@@ -4,7 +4,7 @@ var cl = console.log;
 
 export default {
     template: `
-        <section>
+        <section class="command-line">
             <nav> 
                 <button class="sort" @click="sortItemsBy()">Sort </button>
                 <input class ="serchTextArea" type="text"

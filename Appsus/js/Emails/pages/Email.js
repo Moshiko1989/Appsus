@@ -11,12 +11,15 @@ import ItemPreview from '../../cmps/ItemPreview.js'
 export default {
     template: `
     <section>
-        <h1>This will be th Emails Home Page</h1>
         <command-line @addNewItem="addNewEmail" @searchSubmited="searchSubmited"></command-line>
-        <ul>
-            <item-preview v-for="email in emailsToDisplay" :item="email" :key="email.id"> </item-preview>
-                   
-        </ul>
+        <content class="main-content">
+            <ul class="left">
+                <li v-for="obj in 4">some li</li>
+            </ul>
+            <ul class="right">
+                <item-preview v-for="email in emailsToDisplay" :item="email" :key="email.id"> </item-preview>
+            </ul>
+        </content>
     </section>
     `
     ,
@@ -34,7 +37,6 @@ export default {
                 this.emails = emails;
             })
             .catch(err => {
-                EmailsService.getEmails()
                 console.log('cant get emails from EmailsService!!');
                 this.emails = []
             })
@@ -45,8 +47,9 @@ export default {
             this.$router.push('/Email/create');
         },
         searchSubmited(value) {
-            cl('Ss ran', value)
-            this.searchValue = value;
+            cl('Ss ran', value);
+            this.searchValue = value;;
+            cl('Ss searchValue', this.searchValue)
         },
         deleteEmail(emailId){
             cl('mail was delited');
@@ -63,15 +66,13 @@ export default {
         emailsToDisplay(){
             return this.emails.filter( email =>{
                 if (!this.searchValue) return true;
-                if (!email.title.match(new RegExp(this.searchValue, 'i'))){
+                if (!email.title.match(new RegExp(this.searchValue ,'i'))){
                     return false; 
                 }
             })
             cl('emailsToDisplay'. emailsToDisplay)
         }
     },
-    
-    
         components: {
             CommandLine,
             ItemPreview

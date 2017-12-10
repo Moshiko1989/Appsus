@@ -4,7 +4,7 @@ var cl = console.log;
 
 const emails = [
     {
-        id: 1,
+        id: 101,
         title: '1st mail to moshiko',
         text: 'lorem ipsum',
         data: '',
@@ -15,7 +15,7 @@ const emails = [
         to: 'me@gmail.com'
     },
     {
-        id: 2,
+        id: 102,
         title: '2nd dont know',
         text: 'lorem ipsum',
         data: '',
@@ -73,16 +73,16 @@ const emails = [
 ];
 
 function emptyEmail() {
-    var id = _getNextId();
+    // var id = _getNextId();
     return {
-        id: id,
-        title: '',
-        data: '',
+        id: _getNextId(),
+        title: ' ',
+        data: ' ',
         isImportent: false,
-        date: '',
+        date: ' ',
         isRead: false,
-        from: '',
-        to: ''
+        from: ' ',
+        to: ' '
     }
 }
 
@@ -90,6 +90,7 @@ function _getNextId() {
     var maxId = emails.reduce((acc, mail) => {
         return (mail.id > acc) ? mail.id : acc
     }, 0);
+    cl('maxId in the _getnextId fn = ', maxId)
     return maxId + 1;
 }
 
@@ -99,21 +100,34 @@ function getEmails() {
     });
 }
 
-function getEmailById(emailId){
-    return new Promise((resolve, reject)=>{
+function getEmailById(emailId) {
+    return new Promise((resolve, reject) => {
         var foundEmail = emails.find(email => email.id === emailId)
-        if (foundEmail) resolve(foundEmail)
+        cl('in the get email by id promise')
+        if (foundEmail) {
+            resolve(foundEmail)
+            cl('get email by id - ', foundEmail)
+        }
         else reject();
     })
 }
 
-function saveEmail(email) {
+function addEmail(email) {
     return new Promise((resolve, reject) => {
         emails.push(email);
+        resolve();
     })
-    resolve(email);
-    cl('email was saved', email);
-};
+}
+function saveEmail(email) {
+    return new Promise((resolve, reject)=>{
+        cl('email',email);
+            var emailIdx = emails.findIndex(currEmail => currEmail.id === email.id);
+            cl('emailIdx',emailIdx);
+            emails.splice(emailIdx, 1, email);
+        resolve()
+        // reject()
+    });
+}
 
 
 //function read???//
@@ -123,7 +137,7 @@ function editEmail(email) {
 }
 
 function deleteEmail(email) {
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
         var emailIdx = emails.findIndex(email => email.id === emailId)
         emails.splice(emailIdx, 1);
         resolve()
@@ -136,6 +150,7 @@ function sortEmails(email, key) {
 
 export default {
     emptyEmail,
+    addEmail,
     saveEmail,
     editEmail,
     deleteEmail,

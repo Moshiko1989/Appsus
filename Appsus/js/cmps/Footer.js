@@ -4,8 +4,8 @@ var cl = console.log;
 
 export default {
     template: `
-        <section>
-            <footer>Moshiko&Ido &copy; 2018</footer>
+        <section class="foot-class">
+            Moshiko&Ido &copy; 2018
         </section>
         `   
 }

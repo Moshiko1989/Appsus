@@ -6,10 +6,12 @@ export default {
     template: `
         <li>
             <router-link :item="item" :to=link exact>
-                <p>{{item.title}}</P
+                <p>{{item.title}}</P>
                 <p>{{item.text}}</p>
                 <p>{{item.date}}</P>
             </router-link>
+
+            <button @click="deleteItem(item)">X</button>
         </li>
     `,
     data() {
@@ -21,9 +23,17 @@ export default {
         item: Object,
     },
     created(){
-        // cl('created: ', this.$route.fullPath)
-        // cl('regex: ', this.$route.matched[0].regex)
+        cl('regex: ', this.$route.matched[0].regex)
         cl(this.$route.matched[0].regex.test(this.$route.fullPath))
-        cl('item', this.link)
+        cl('this.$route.fullPath',this.$route.fullPath)
+        cl('this.item.id',this.item.id)
+        cl('link', this.link)
+        cl('item', this.item)
+    },
+    methods:{
+        deleteItem(item){
+            cl('item',item)
+            // $emit(deleteItem,item.id)
+        }
     }
 }

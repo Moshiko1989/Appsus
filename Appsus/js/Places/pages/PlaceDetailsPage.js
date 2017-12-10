@@ -7,8 +7,19 @@ import PlacesService from '../PlacesService.js'
 export default {
     template: `
         <section v-if="place">
-            <h1>{{place.tite}}</h1>
-            <h2>$ {{place.text}}</h2>
+            <p>title</p>
+            <input type="text" v-model="date.title" autofocus>
+            <p>text</p>
+            <input type="textbox" v-model="note.text" >
+            <p>picture</p>
+            <input type="text" v-model="note.picture" >
+            <p>date</p>
+            <input type="date" v-model="note.date" >
+            <p>type</p>
+            <input type="text" v-model="note.type" >
+            <button @click="savePlace">save</button>
+            <router-link tag="button" to="/Places">Cancel</router-link>
+            
         </section>
     `,
     data() {
@@ -18,12 +29,14 @@ export default {
     },
     created() {
         var placeId = +this.$route.params.PlaceId
-        cl('placeId',placeId)
         PlacesService.getPlaceById(placeId)
-         .then(place => this.place = place)
+         .then(place => {
+             this.place = place
+         })
          .catch(err => {
-             this.$router.push('/')
+             this.$router.push('/Places')
          })
         
-    }
+    },
+    
 }
