@@ -17,7 +17,7 @@ export default {
                 <li v-for="obj in 4">some li</li>
             </ul>
             <ul class="right">
-                <item-preview v-for="email in emailsToDisplay" :item="email" :key="email.id"> </item-preview>
+                <item-preview v-for="email in emailsToDisplay" @deleteItem="deleteEmail(email.id)" :item="email" :key="email.id"> </item-preview>
             </ul>
         </content>
     </section>
@@ -37,25 +37,26 @@ export default {
                 this.emails = emails;
             })
             .catch(err => {
-                EmailsService.getEmails()
                 console.log('cant get emails from EmailsService!!');
                 this.emails = []
             })
     },
     methods:{
         addNewEmail(){
-            console.log('emails is good rout')
-            this.$router.push('/Email/create');
+            // console.log('emails is good rout')
+            // this.$router.push('/Email/create');
         },
         searchSubmited(value) {
-            cl('Ss ran', value)
-            this.searchValue = value;
+            // cl('Ss ran', value);
+            this.searchValue = value;;
+            // cl('Ss searchValue', this.searchValue)
         },
         deleteEmail(emailId){
-            cl('mail was delited');
+            cl('id is: ', emailId)
+            // cl('mail was delited');
             EmailsService.deleteEmail(emailId)
                 .then(_ =>{
-                    cl('mail was delited');
+                    // cl('mail was delited');
                 })
                 .catch(err => {
                     cl('mail was not delited');
@@ -66,15 +67,13 @@ export default {
         emailsToDisplay(){
             return this.emails.filter( email =>{
                 if (!this.searchValue) return true;
-                if (!email.title.match(new RegExp(this.searchValue, 'i'))){
+                if (!email.title.match(new RegExp(this.searchValue ,'i'))){
                     return false; 
                 }
             })
-            cl('emailsToDisplay'. emailsToDisplay)
+            cl('emailsToDisplay', emailsToDisplay)
         }
     },
-    
-    
         components: {
             CommandLine,
             ItemPreview

@@ -60,6 +60,7 @@ var places = [
 
 function emptyPlace() {
     return {
+        id:_getNextId(),
         title: '',
         text: ' ',
         picture: '',
@@ -83,9 +84,21 @@ function getPlaces(){
     });
 }
 
-function addPlace() {
+function getPlaceById(placeId){
+    return new Promise((resolve, reject)=>{
+        var foundPlace = places.find(place => place.id === placeId)
+        if (foundPlace){
+            resolve(foundPlace)
+        }
+        else reject();
+    })
+}
 
-    return place;
+function savePlace(email) {
+    return new Promise((resolve, reject) => {
+        places.push(place);
+    resolve();
+    })
 }
 
 //function read???//
@@ -104,10 +117,11 @@ function sortPlaces(place, key) {
 
 export default {
     emptyPlace,
-    addPlace,
+    savePlace,
     editPlace,
     deletePlace,
     sortPlaces,
     getPlaces,
+    getPlaceById,
     places
 }

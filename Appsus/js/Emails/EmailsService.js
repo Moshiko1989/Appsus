@@ -114,10 +114,10 @@ function editEmail(email) {
 
 }
 
-function deleteEmail(email) {
+function deleteEmail(emailId) {
     return new Promise((resolve, reject)=>{
-        var emailIdx = emails.findIndex(email => email.id === emailId)
-        emails.splice(emailIdx, 1);
+        var email = emails.findIndex(email => email.id === emailId)
+        emails.splice(email, 1);
         resolve()
     });
 }
@@ -125,7 +125,7 @@ function deleteEmail(email) {
 function sortEmails(email, key) {
 
 }
-
+    
 export default {
     emptyEmail,
     saveEmail,
